@@ -70,21 +70,32 @@
 // fonction pour afficher la grille 
    void afficher_grille()
    {
-    for (int i = 0 ; i < hauteur ; i++)
+    for (int j = 0 ; j < largeur ; j++)
     {
-      for (int j = 0 ; j < largeur ; j++)
+      for (int i = 0 ; i < hauteur ; i++)
       {
+        if( i != 0)
+        {
          if (grille [j][i] == 1)
          {
-            std::cout <<"|#";
             std::cout <<"#|";
          }else if (grille [j][i] == 2){
-            std::cout <<"| ";
             std::cout <<" |";
          }else{
-            std::cout <<"|.";
             std::cout <<".|";
          }
+        }
+        else
+        {
+         if (grille [j][i] == 1)
+         {
+            std::cout <<"|#|";
+         }else if (grille [j][i] == 2){
+            std::cout <<"| |";
+         }else{
+            std::cout <<"|.|";
+         }
+        }
       }
       std::cout << std::endl;
     }  
@@ -130,7 +141,6 @@ void ajout_cellule()
    }
    int main()
    {
-      std::cout <<"\033[31mv033[37m"<<std::endl;
       int b,evol;
       std::cin >> b;
       srand (time(0));
